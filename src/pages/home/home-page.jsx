@@ -11,6 +11,8 @@ import {
   Modal,
   notify,
 } from "@/shared/ui";
+import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 import styles from "./home-page.module.css";
 
 const fabrics = ["Френч Терри", "Пике", "Футер 3-х Нитка", "Вискоза", "Бифлекс"];
@@ -28,8 +30,10 @@ export const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <Container as="main" className={styles.page}>
-      <header className={styles.head}>
+    <>
+      <Header />
+      <Container as="main" className={styles.page}>
+        <header className={styles.head}>
         <h1 className={styles.h1}>Saka — UI kit</h1>
         <p className={styles.lead}>
           Базовые компоненты по макету Figma: Montserrat, navy&nbsp;#19242f,
@@ -130,6 +134,8 @@ export const HomePage = () => {
           </Button>
         </div>
       </Modal>
-    </Container>
+      </Container>
+      <Footer />
+    </>
   );
 };
