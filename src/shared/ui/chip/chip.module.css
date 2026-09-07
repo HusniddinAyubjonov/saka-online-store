@@ -1,0 +1,27 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 15px;
+  border-radius: var(--r-sm);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.gold {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.muted {
+  background: #eeeeee;
+  color: var(--navy);
+}

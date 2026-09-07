@@ -1,0 +1,66 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  color: currentColor;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.12s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--navy-blue);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sm {
+  width: 32px;
+  height: 32px;
+}
+.md {
+  width: 40px;
+  height: 40px;
+}
+.lg {
+  width: 48px;
+  height: 48px;
+}
+
+.solid {
+  background: var(--gold);
+  color: var(--navy);
+}
+.solid:hover:not(:disabled) {
+  background: var(--gold-dark);
+}
+
+.outline {
+  border-color: currentColor;
+}
+.outline:hover:not(:disabled) {
+  background: currentColor;
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgba(25, 36, 47, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

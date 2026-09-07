@@ -1,0 +1,83 @@
+.button {
+  --btn-fs: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  font-family: var(--font-sans);
+  font-size: var(--btn-fs);
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.12s ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--navy-blue);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- sizes --- */
+.lg {
+  padding: 17px 30px;
+}
+.md {
+  --btn-fs: 14px;
+  padding: 14px 25px;
+}
+.sm {
+  --btn-fs: 12px;
+  padding: 9px 18px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* --- variants --- */
+.primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.primary:hover:not(:disabled) {
+  background: var(--gold-dark);
+}
+
+.outline {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.outline:hover:not(:disabled) {
+  background: var(--gold);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--navy);
+}
+.ghost:hover:not(:disabled) {
+  background: rgba(25, 36, 47, 0.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}

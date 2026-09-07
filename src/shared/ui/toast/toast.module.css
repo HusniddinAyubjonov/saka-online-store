@@ -1,0 +1,45 @@
+.stack {
+  padding: 12px;
+}
+
+.toast {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--r-md);
+  box-shadow: 0 16px 32px rgba(25, 36, 47, 0.16);
+  padding: 14px 16px;
+}
+
+/* цвет левой полосы под тип уведомления */
+.toast:global(.Toastify__toast--success) {
+  border-left-color: var(--teal);
+}
+.toast:global(.Toastify__toast--error) {
+  border-left-color: var(--red);
+}
+.toast:global(.Toastify__toast--info) {
+  border-left-color: var(--blue);
+}
+
+.toast :global(.Toastify__toast-icon) {
+  color: var(--navy);
+}
+
+.close {
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-self: flex-start;
+}
+
+.close:hover {
+  color: var(--navy);
+}

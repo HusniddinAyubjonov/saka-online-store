@@ -1,10 +1,64 @@
-.homePage {
-  min-height: 100vh;
+.page {
+  padding-block: 48px 80px;
   display: flex;
   flex-direction: column;
+  gap: 48px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.lead {
+  max-width: 560px;
+  color: var(--muted);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy-blue);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-align: center;
-  padding: 24px;
+  gap: 12px;
+}
+
+.swatch {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
 }

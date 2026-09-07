@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "@/shared/ui/toast";
 import { HomePage } from "@/pages/home";
 
 export const App = () => {
@@ -10,7 +9,7 @@ export const App = () => {
         <Route path="/" element={<HomePage />} />
       </Routes>
 
-      <ToastContainer position="top-right" autoClose={3000} newestOnTop />
+      <Toaster />
     </BrowserRouter>
   );
 };

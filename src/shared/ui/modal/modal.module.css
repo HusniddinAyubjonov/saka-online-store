@@ -1,0 +1,48 @@
+.overlay {
+  background: rgba(25, 36, 47, 0.55);
+}
+
+.container {
+  padding: 16px;
+}
+
+.modal {
+  width: 100%;
+  border-radius: var(--r-md);
+  padding: 32px 28px 28px;
+  box-shadow: 0 30px 60px rgba(25, 36, 47, 0.3);
+  font-family: var(--font-sans);
+  color: var(--navy);
+}
+
+.sm {
+  max-width: 380px;
+}
+.md {
+  max-width: 480px;
+}
+.lg {
+  max-width: 680px;
+}
+
+.close {
+  top: 16px;
+  right: 16px;
+  color: var(--navy);
+}
+
+.close:hover {
+  color: var(--gold-dark);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-right: 28px;
+}
+
+.body {
+  font-size: 14px;
+  line-height: 1.6;
+}

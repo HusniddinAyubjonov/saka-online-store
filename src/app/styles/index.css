@@ -1,6 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
 :root {
-  /* шрифты подключим позже, когда будет макет */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* --- fonts --- */
+  --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+
+  /* --- brand colors --- */
+  --navy: #19242f;
+  --navy-blue: #263669;
+  --gold: #dbc08d;
+  --gold-dark: #bfa470;
+  --white: #ffffff;
+  --page: #f8f8f8;
+  --border: #dadada;
+  --muted: #848381;
+
+  /* --- accent / fabric swatches --- */
+  --blue: #4a7ab8;
+  --blue-light: #94b7d5;
+  --blue-pale: #c8daea;
+  --orange: #fc8b23;
+  --yellow: #f5dc41;
+  --purple: #b5a0c9;
+  --red: #b2092c;
+  --teal: #007c7a;
+  --green: #25d366;
+
+  /* --- radii --- */
+  --r-sm: 4px;
+  --r-md: 16px;
+  --r-pill: 100px;
+
+  /* --- layout --- */
+  --container: 1400px;
+  --container-pad: 24px;
 }
 
 * {
@@ -15,7 +48,10 @@ html {
 
 body {
   font-family: var(--font-sans);
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--navy);
+  background: var(--white);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -31,4 +67,14 @@ a {
 
 button {
   font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.3;
 }
