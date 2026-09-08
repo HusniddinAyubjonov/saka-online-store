@@ -1,10 +1,43 @@
-.swatchCard {
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 130px;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
+.box {
+  width: 130px;
+  height: 130px;
+  border-radius: var(--r-sm);
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover .box {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(25, 36, 47, 0.12);
+}
+
+.tee {
+  width: 78px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+}
+
+.code {
   font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box {
+    transition: none;
+  }
 }

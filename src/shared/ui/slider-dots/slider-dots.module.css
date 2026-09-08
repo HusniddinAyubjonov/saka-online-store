@@ -1,10 +1,43 @@
-.sliderDots {
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
-  font-size: 13px;
+.count {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.count b {
+  font-weight: 600;
+}
+
+.count i {
+  font-style: normal;
+  opacity: 0.35;
+}
+
+.bars {
+  display: flex;
+  gap: 8px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.barActive {
+  background: var(--gold-dark);
+}
+
+.dark .count {
+  color: var(--white);
 }

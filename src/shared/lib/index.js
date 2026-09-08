@@ -1,3 +1,5 @@
+export { useInView } from "./use-in-view.js";
+
 export const scrollToId = (id) => {
   const el = document.getElementById(id);
   if (el) {

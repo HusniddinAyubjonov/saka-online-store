@@ -51,6 +51,17 @@ export const icons = {
       <path d="m9 6 6 6-6 6" />
     </g>
   ),
+  "chevron-left": (
+    <g {...s}>
+      <path d="m15 6-6 6 6 6" />
+    </g>
+  ),
+  "arrow-up-right": (
+    <g {...s}>
+      <path d="M7 17 17 7" />
+      <path d="M8 7h9v9" />
+    </g>
+  ),
   "arrow-right": (
     <g {...s}>
       <path d="M4 12h16" />

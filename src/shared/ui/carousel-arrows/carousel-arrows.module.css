@@ -1,10 +1,22 @@
-.carouselArrows {
+.arrows {
+  display: inline-flex;
+  gap: 12px;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
-  font-size: 13px;
+.btn {
+  width: 50px;
+  height: 50px;
+  color: var(--navy);
+}
+
+.light .btn {
+  background: var(--page);
+}
+
+.light .btn:hover:not(:disabled) {
+  background: var(--gold);
+}
+
+.ghost .btn:hover:not(:disabled) {
+  background: rgba(25, 36, 47, 0.08);
 }

@@ -8,3 +8,8 @@ export { Container } from "./container";
 export { Icon, icons } from "./icon";
 export { Modal } from "./modal";
 export { Toaster, notify } from "./toast";
+export { Reveal } from "./reveal";
+export { SectionTitle } from "./section-title";
+export { CarouselArrows } from "./carousel-arrows";
+export { SliderDots } from "./slider-dots";
+export { Pagination } from "./pagination";
