@@ -21,11 +21,12 @@ export const Toaster = (props) => (
         onClick={closeToast}
         aria-label="Закрыть уведомление"
       >
-        <Icon name="close" size={16} />
+        <Icon name="close" size={14} />
       </button>
     )}
     className={styles.stack}
     toastClassName={styles.toast}
+    bodyClassName={styles.body}
     {...props}
   />
 );

@@ -1,45 +1,110 @@
 .stack {
-  padding: 12px;
+  padding: 14px;
+  width: auto;
+  max-width: 380px;
 }
 
+/* --- сам тост --- */
 .toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+  min-width: 300px;
+  padding: 14px 14px 14px 18px;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--navy);
   background: var(--white);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--gold);
   border-radius: var(--r-md);
-  box-shadow: 0 16px 32px rgba(25, 36, 47, 0.16);
-  padding: 14px 16px;
+  box-shadow: 0 18px 40px rgba(25, 36, 47, 0.18);
 }
 
-/* цвет левой полосы под тип уведомления */
-.toast:global(.Toastify__toast--success) {
-  border-left-color: var(--teal);
-}
-.toast:global(.Toastify__toast--error) {
-  border-left-color: var(--red);
-}
-.toast:global(.Toastify__toast--info) {
-  border-left-color: var(--blue);
+/* тонкая цветная полоса слева */
+.toast::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--gold);
 }
 
-.toast :global(.Toastify__toast-icon) {
+.toast:global(.Toastify__toast--success)::before {
+  background: var(--teal);
+}
+.toast:global(.Toastify__toast--error)::before {
+  background: var(--red);
+}
+.toast:global(.Toastify__toast--info)::before {
+  background: var(--blue);
+}
+
+/* --- тело: иконка + текст --- */
+.body {
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
   color: var(--navy);
 }
 
+.body :global(.Toastify__toast-icon) {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(25, 36, 47, 0.06);
+  color: var(--navy);
+}
+
+.toast:global(.Toastify__toast--success) .body :global(.Toastify__toast-icon) {
+  background: rgba(0, 124, 122, 0.12);
+  color: var(--teal);
+}
+.toast:global(.Toastify__toast--error) .body :global(.Toastify__toast-icon) {
+  background: rgba(178, 9, 44, 0.1);
+  color: var(--red);
+}
+.toast:global(.Toastify__toast--info) .body :global(.Toastify__toast-icon) {
+  background: rgba(74, 122, 184, 0.12);
+  color: var(--blue);
+}
+
+/* --- кнопка закрытия --- */
 .close {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  background: none;
+  border-radius: 50%;
+  background: transparent;
   color: var(--muted);
   cursor: pointer;
-  padding: 2px;
-  display: flex;
-  align-self: flex-start;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .close:hover {
+  background: rgba(25, 36, 47, 0.08);
   color: var(--navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .close {
+    transition: none;
+  }
 }
