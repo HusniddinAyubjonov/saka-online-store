@@ -14,3 +14,4 @@ export { CarouselArrows } from "./carousel-arrows";
 export { SliderDots } from "./slider-dots";
 export { Pagination } from "./pagination";
 export { Breadcrumbs } from "./breadcrumbs";
+export { QuantityStepper } from "./quantity-stepper";

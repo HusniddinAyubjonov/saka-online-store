@@ -1,10 +1,69 @@
-.accountSidebar {
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--page);
+  border-radius: var(--r-md);
+  padding: 24px;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
-  font-size: 13px;
+.user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user div {
+  display: flex;
+  flex-direction: column;
+}
+
+.user b { font-size: 14px; }
+.user span { font-size: 12px; color: var(--muted); }
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.tab:hover { background: rgba(25, 36, 47, 0.06); }
+
+.tabActive {
+  background: var(--gold);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab { transition: none; }
 }

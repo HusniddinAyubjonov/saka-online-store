@@ -1,10 +1,54 @@
-.quantityStepper {
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
+.stepper button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--navy);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.stepper button:hover:not(:disabled) {
+  border-color: var(--gold);
+}
+
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 28px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.md button {
+  width: 30px;
+  height: 30px;
+}
+
+.sm button {
+  width: 24px;
+  height: 24px;
+}
+
+.sm .value {
   font-size: 13px;
+  min-width: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepper button {
+    transition: none;
+  }
 }
