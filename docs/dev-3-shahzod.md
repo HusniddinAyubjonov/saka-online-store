@@ -12,6 +12,27 @@
 | Оплата и доставка | `97-1418` (мобайл `508-10549`) |
 | Калькулятор | `102-957` (мобайл `615-5021`) |
 
+Этот файл самодостаточный — тут всё, что нужно. Другие доки открывать не обязательно.
+
+---
+
+## Запуск и git
+
+```bash
+npm install
+npm run dev      # открой http://localhost:5173
+npm run build    # перед пушем — должен пройти без ошибок
+npm run lint     # тоже должен быть чистым
+```
+
+```bash
+git checkout -b feat/contacts-delivery
+git add -A
+git commit -m "feat: contacts page"   # коротко, без Co-Authored-By
+git push -u origin feat/contacts-delivery
+```
+Потом Pull Request в `main`.
+
 ---
 
 ## Как всё устроено (коротко)
@@ -20,18 +41,76 @@
   - `имя.jsx` — сама вёрстка
   - `имя.module.css` — стили
   - `index.js` — не трогаешь
-- Стили пишем в `.module.css`, классы называем в стиле `camelCase` (`.contactRow`, `.mapWrap`).
-- Цвета не пишем числами. Берём готовые:
-  `var(--navy)` тёмно-синий, `var(--gold)` золотой, `var(--white)`, `var(--page)` светлый фон,
-  `var(--border)` серая рамка, `var(--muted)` серый текст.
-  Радиусы: `var(--r-md)` (16px), `var(--r-pill)` (кнопки).
+- Папки и файлы — **kebab-case** (`contact-form/`, `contact-form.jsx`).
+  Имя компонента — **PascalCase** (`ContactForm`).
+- Стили пишем в `.module.css`, классы называем в стиле **camelCase** (`.contactRow`, `.mapWrap`).
+- Цвета не пишем числами. Берём готовые (объявлены в `src/app/styles/index.css`):
+  `var(--navy)` тёмно-синий, `var(--gold)` золотой, `var(--gold-dark)`, `var(--white)`,
+  `var(--page)` светлый фон, `var(--border)` серая рамка, `var(--muted)` серый текст.
+  Свотчи тканей: `var(--blue) --orange --yellow --purple --red --teal --green`.
+  Радиусы: `var(--r-sm)` 4px, `var(--r-md)` 16px, `var(--r-pill)` кнопки.
+- Шрифт везде **Montserrat** (уже подключён). Размеры: 32 / 26 / 22 / 18 / 16 / 14 / 12.
 - Готовые кнопки/поля бери из UI-кита. **Не верстай кнопку руками.**
 
+### Компоненты, которые тебе нужны
+
 ```jsx
-import { Button, Input, Textarea, Checkbox, Icon, Container, notify } from "@/shared/ui";
+import { Button, Input, Textarea, Checkbox, Icon, Container, Modal, notify } from "@/shared/ui";
 ```
 
-Примеры использования — в [ui-kit.md](./ui-kit.md).
+**Button** — кнопка:
+```jsx
+<Button>Отправить</Button>
+<Button variant="outline">Сбросить</Button>
+<Button type="submit" fullWidth>Рассчитать</Button>
+```
+`variant`: `primary` (золотая, по умолч.) / `outline` / `ghost`. `size`: `lg` / `md` / `sm`. Ещё `fullWidth`, `disabled`.
+
+**Input / Textarea** — поля:
+```jsx
+<Input label="Имя" name="name" required />
+<Input label="Телефон" name="phone" leftIcon={<Icon name="phone" size={18} />} />
+<Textarea label="Сообщение" name="message" rows={5} />
+```
+Пропсы: `label`, `hint`, `error`. Остальное (`name`, `type`, `value`, `onChange`) — прямо в поле.
+
+**Checkbox**:
+```jsx
+<Checkbox label="Согласен на обработку данных" />
+```
+
+**Icon** — иконка (наследует цвет текста):
+```jsx
+<Icon name="phone" size={20} />
+```
+Имена: `phone mail location cart user search close check plus minus menu
+chevron-down chevron-right arrow-right whatsapp`.
+
+**Container** — центрирует контент, ограничивает ширину. Оборачивай в него контент секций:
+```jsx
+<Container>...</Container>
+```
+
+**Modal** — окно:
+```jsx
+import { useState } from "react";
+const [open, setOpen] = useState(false);
+<Button onClick={() => setOpen(true)}>Открыть</Button>
+<Modal open={open} onClose={() => setOpen(false)} title="Заголовок" size="sm">
+  ...контент...
+</Modal>
+```
+
+**notify** — всплывающее уведомление (тост). `<Toaster />` уже подключён:
+```jsx
+notify.success("Сообщение отправлено");
+notify.error("Заполните поля");
+```
+
+**Layout** — каркас страницы (Header + контент + Footer). Уже готов, просто оборачивай:
+```jsx
+<Layout>...страница...</Layout>
+```
 
 ---
 
