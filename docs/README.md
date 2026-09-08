@@ -116,9 +116,9 @@ git push -u origin feat/<твоя-часть>
 
 | Разработчик | Страницы | Общие компоненты | Файл-задание |
 |---|---|---|---|
-| **Husniddin (лид)** | Главная, Каталог, Корзина, Оформление заказа | SectionTitle, Pagination, CarouselArrows, SliderDots; карточки Product / News / Swatch | [dev-1-husniddin.md](./dev-1-husniddin.md) |
+| **Husniddin (лид)** — берёт больше остальных | Главная, Каталог, Корзина, Оформление заказа, Личный кабинет | SectionTitle, Pagination, CarouselArrows, SliderDots; карточки Product / News / Swatch | [dev-1-husniddin.md](./dev-1-husniddin.md) |
 | **Разработчик 2** | Карточка товара, О компании, Новости, Статья | Breadcrumbs, Stat, QuantityStepper, ColorPicker; CertificateCard; add-to-cart | [dev-2.md](./dev-2.md) |
-| **Разработчик 3** | Контакты, Оплата и доставка, Калькулятор, Личный кабинет | subscribe-form, callback-request, price-list-request | [dev-3.md](./dev-3.md) |
+| **Разработчик 3** — самый лёгкий объём | Контакты, Оплата и доставка, Калькулятор | subscribe-form, callback-request, price-list-request | [dev-3.md](./dev-3.md) |
 
 Хедер, футер, Layout и базовый UI-кит (Button, Input, Modal, Toaster…) — уже готовы.
 
