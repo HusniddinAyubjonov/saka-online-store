@@ -200,7 +200,7 @@ const handleSubmit = (e) => {
 <SectionTitle>Выбирайте из множества разновидностей тканей</SectionTitle>
 <SectionTitle align="center" as="h1">Каталог</SectionTitle>
 
-// Breadcrumbs — хлебные крошки. Делает Разработчик 2.
+// Breadcrumbs — хлебные крошки. Делает Shukrulloh.
 <Breadcrumbs items={[{ label: "Главная", href: "/" }, { label: "Каталог" }]} />
 
 // Pagination. Делает Husniddin.
@@ -212,13 +212,13 @@ const handleSubmit = (e) => {
 // SliderDots — «01 / 05» + полоски. Делает Husniddin.
 <SliderDots count={5} active={0} onChange={setActive} />
 
-// Stat — цифра + подпись («30 лет на рынке»). Делает Разработчик 2.
+// Stat — цифра + подпись («30 лет на рынке»). Делает Shukrulloh.
 <Stat value="40+" label="стран-партнёров" />
 
-// QuantityStepper — − [ 2 ] +. Делает Разработчик 2.
+// QuantityStepper — − [ 2 ] +. Делает Shukrulloh.
 <QuantityStepper value={qty} onChange={setQty} min={1} />
 
-// ColorPicker — кружки-свотчи выбора цвета. Делает Разработчик 2.
+// ColorPicker — кружки-свотчи выбора цвета. Делает Shukrulloh.
 <ColorPicker value={color} onChange={setColor} options={["--gray","--black","--blue"]} />
 ```
 

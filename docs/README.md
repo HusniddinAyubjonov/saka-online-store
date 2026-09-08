@@ -114,11 +114,11 @@ git push -u origin feat/<твоя-часть>
 
 ## Кто что делает
 
-| Разработчик | Страницы | Общие компоненты | Файл-задание |
+| Кто | Страницы | Общие компоненты | Файл-задание |
 |---|---|---|---|
 | **Husniddin (лид)** — берёт больше остальных | Главная, Каталог, Корзина, Оформление заказа, Личный кабинет | SectionTitle, Pagination, CarouselArrows, SliderDots; карточки Product / News / Swatch | [dev-1-husniddin.md](./dev-1-husniddin.md) |
-| **Разработчик 2** | Карточка товара, О компании, Новости, Статья | Breadcrumbs, Stat, QuantityStepper, ColorPicker; CertificateCard; add-to-cart | [dev-2.md](./dev-2.md) |
-| **Разработчик 3** — самый лёгкий объём | Контакты, Оплата и доставка, Калькулятор | subscribe-form, callback-request, price-list-request | [dev-3.md](./dev-3.md) |
+| **Shukrulloh** | Карточка товара, О компании, Новости, Статья | Breadcrumbs, Stat, QuantityStepper, ColorPicker; CertificateCard; add-to-cart | [dev-2-shukrulloh.md](./dev-2-shukrulloh.md) |
+| **Shahzod** — самый лёгкий объём | Контакты, Оплата и доставка, Калькулятор | subscribe-form, callback-request, price-list-request | [dev-3-shahzod.md](./dev-3-shahzod.md) |
 
 Хедер, футер, Layout и базовый UI-кит (Button, Input, Modal, Toaster…) — уже готовы.
 
