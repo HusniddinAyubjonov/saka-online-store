@@ -1,50 +1,64 @@
 import { useState } from "react";
-import { Input, Button } from "@/shared/ui";
+import { Icon } from "@/shared/ui";
+import { fabrics } from "./fabrics-data.js";
+import { CalculatorItem } from "./calculator-item.jsx";
 import styles from "./calculator.module.css";
 
-const samples = [
-  { color: "var(--blue)", code: "A-107 Blue" },
-  { color: "var(--orange)", code: "A-135 Orange" },
-  { color: "var(--green)", code: "A-136 Green" },
-];
+let uid = 1;
+const emptyItem = () => ({ id: uid++, fabricId: fabrics[0].id, rolls: 1, packs: 1 });
 
 export const Calculator = () => {
-  const [result, setResult] = useState(null);
+  const [items, setItems] = useState([emptyItem()]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const price = Number(f.get("price")) || 0;
-    const meters = Number(f.get("meters")) || 0;
-    setResult(price * meters);
-  };
+  const update = (next) =>
+    setItems((list) => list.map((it) => (it.id === next.id ? next : it)));
+  const remove = (id) => setItems((list) => list.filter((it) => it.id !== id));
+  const add = () => setItems((list) => [...list, emptyItem()]);
+
+  const totals = items.reduce(
+    (acc, it) => {
+      const fabric = fabrics.find((f) => f.id === it.fabricId) ?? fabrics[0];
+      acc.rolls += it.rolls;
+      acc.packs += it.packs;
+      acc.sum += it.rolls * fabric.pricePerRoll + it.packs * fabric.pricePerPack;
+      return acc;
+    },
+    { rolls: 0, packs: 0, sum: 0 },
+  );
 
   return (
-    <div className={styles.calculator}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.grid}>
-          <Input label="Цена за метр, ₽" name="price" type="number" min={0} required />
-          <Input label="Сколько метров" name="meters" type="number" min={0} required />
-          <Input label="Ширина полотна, см" name="width" type="number" min={0} />
-        </div>
-        <Button type="submit">Рассчитать стоимость</Button>
-      </form>
-
-      {result !== null && (
-        <div className={styles.result}>
-          Примерная стоимость заказа:{" "}
-          <b>{result.toLocaleString("ru-RU")} ₽</b>
-        </div>
-      )}
-
-      <div className={styles.samples}>
-        {samples.map((s) => (
-          <div key={s.code} className={styles.sample}>
-            <span className={styles.swatch} style={{ background: s.color }} />
-            <span>{s.code}</span>
-          </div>
+    <div className={styles.wrap}>
+      <div className={styles.list}>
+        {items.map((it) => (
+          <CalculatorItem
+            key={it.id}
+            item={it}
+            onChange={update}
+            onRemove={() => remove(it.id)}
+            removable={items.length > 1}
+          />
         ))}
+
+        <button type="button" className={styles.add} onClick={add}>
+          Добавить товар
+          <Icon name="plus" size={18} />
+        </button>
       </div>
+
+      <aside className={styles.summary}>
+        <div>
+          <b>Количество рулонов:</b>
+          <span>{totals.rolls}</span>
+        </div>
+        <div>
+          <b>Количество пачек:</b>
+          <span>{totals.packs}</span>
+        </div>
+        <div className={styles.grand}>
+          <b>Итоговая сумма за все позиции:</b>
+          <strong>{totals.sum.toLocaleString("ru-RU")} ₽</strong>
+        </div>
+      </aside>
     </div>
   );
 };

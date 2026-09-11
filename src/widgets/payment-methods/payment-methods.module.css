@@ -9,26 +9,14 @@
   font-weight: 600;
 }
 
+@media (min-width: 768px) {
+  .title { font-size: 32px; }
+}
+
 .text {
-  max-width: 640px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.badge {
-  padding: 12px 22px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-sm);
-  font-size: 14px;
-  font-weight: 600;
+  max-width: 720px;
+  font-size: 18px;
+  font-weight: 300;
   color: var(--navy);
-  background: var(--white);
+  line-height: 1.6;
 }

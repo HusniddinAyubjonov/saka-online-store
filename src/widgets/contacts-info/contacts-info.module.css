@@ -1,49 +1,36 @@
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.title {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-.row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.icon {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+.card {
   background: var(--page);
-  color: var(--navy);
+  border-radius: var(--r-md);
+  padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.row b {
-  display: block;
-  font-size: 14px;
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(25, 36, 47, 0.5);
+}
+
+.value {
+  font-size: 16px;
   font-weight: 600;
   color: var(--navy);
-  margin-bottom: 4px;
+  line-height: 1.4;
+  white-space: pre-line;
 }
 
-.row p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
+@media (max-width: 1023px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
 }

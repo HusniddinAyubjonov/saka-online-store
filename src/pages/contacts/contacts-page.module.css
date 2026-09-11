@@ -2,15 +2,16 @@
   padding-block: 24px 64px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 28px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 48px;
+.title {
+  font-size: 26px;
+  font-weight: 600;
 }
 
-@media (max-width: 1023px) {
-  .grid { grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
 }
