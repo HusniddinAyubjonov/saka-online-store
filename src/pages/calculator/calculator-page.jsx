@@ -1,14 +1,19 @@
 import { Layout } from "@/widgets/layout";
-import { Container } from "@/shared/ui";
+import { Container, Breadcrumbs } from "@/shared/ui";
+import { Calculator } from "@/widgets/calculator";
+import { RecentlyViewed } from "@/widgets/recently-viewed";
 import styles from "./calculator-page.module.css";
 
-export const CalculatorPage = () => {
-  return (
-    <Layout>
-      <Container className={styles.page}>
-        <h1 className={styles.title}>Калькулятор</h1>
-        <p className={styles.todo}>Калькулятор — TODO: собрать из виджетов по макету</p>
-      </Container>
-    </Layout>
-  );
-};
+export const CalculatorPage = () => (
+  <Layout>
+    <Container className={styles.page}>
+      <Breadcrumbs items={[{ label: "Главная", href: "/" }, { label: "Калькулятор" }]} />
+      <h1 className={styles.title}>Калькулятор расчёта стоимости ткани</h1>
+      <p className={styles.lead}>
+        Рассчитайте стоимость ткани, ответив на три вопроса
+      </p>
+      <Calculator />
+    </Container>
+    <RecentlyViewed />
+  </Layout>
+);
