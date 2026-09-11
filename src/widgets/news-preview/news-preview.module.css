@@ -1,21 +1,523 @@
 .section {
-  padding: 40px 0;
+  position: relative;
+  padding: 130px 0 150px;
+  overflow: hidden;
 }
 
-.title {
-  margin-bottom: 32px;
+/* =====================================
+   СЦЕНА
+===================================== */
+
+.scene {
+  position: relative;
+  height: 330px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+
+  overflow: hidden;
 }
+
+.sceneGlow {
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  border-radius: 50%;
+
+  background: #14b8b0;
+
+  filter: blur(100px);
+
+  opacity: 0;
+
+  transform: scale(0);
+
+  transition:
+    opacity 1.5s ease,
+    transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.started .sceneGlow {
+  opacity: 0.12;
+  transform: scale(1);
+}
+
+/* =====================================
+   ЧЕЛОВЕК
+===================================== */
+
+.person {
+  position: absolute;
+
+  left: 7%;
+  bottom: 25px;
+
+  width: 80px;
+  height: 150px;
+
+  opacity: 0;
+
+  transform:
+    translateX(-120px)
+    scale(0.7);
+
+  transition:
+    opacity 1s ease 1s,
+    transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1s;
+}
+
+.started .person {
+  opacity: 1;
+
+  transform:
+    translateX(0)
+    scale(1);
+}
+
+.personHead {
+  position: absolute;
+
+  left: 28px;
+  top: 0;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #111;
+}
+
+.personBody {
+  position: absolute;
+
+  left: 20px;
+  top: 38px;
+
+  width: 48px;
+  height: 85px;
+
+  border-radius: 24px 24px 10px 10px;
+
+  background: #111;
+}
+
+.personArm {
+  position: absolute;
+
+  left: 58px;
+  top: 48px;
+
+  width: 45px;
+  height: 13px;
+
+  border-radius: 20px;
+
+  background: #111;
+
+  transform-origin: left center;
+
+  animation: lookArm 3s ease-in-out infinite;
+}
+
+@keyframes lookArm {
+  0%,
+  100% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* =====================================
+   БОЛЬШОЙ ТЕКСТ
+===================================== */
+
+.bigText {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+
+  font-size: clamp(70px, 13vw, 190px);
+  font-weight: 900;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.08em;
+
+  color: #111;
+
+  perspective: 900px;
+}
+
+.bigText span {
+  display: inline-block;
+
+  opacity: 0;
+
+  transform:
+    translateY(120px)
+    rotateX(80deg)
+    scale(0.3);
+
+  filter: blur(12px);
+
+  transition:
+    opacity 0.7s ease var(--letter-delay),
+    transform 1.1s cubic-bezier(0.16, 1, 0.3, 1)
+      var(--letter-delay),
+    filter 0.8s ease var(--letter-delay);
+}
+
+.started .bigText span {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    rotateX(0)
+    scale(1);
+
+  filter: blur(0);
+}
+
+/* =====================================
+   ПОДЗАГОЛОВОК
+===================================== */
+
+.subtitle {
+  position: absolute;
+
+  bottom: 15px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 5px;
+
+  color: #14b8b0;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.8s ease 1.5s,
+    transform 0.8s ease 1.5s;
+}
+
+.started .subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================
+   КАРТОЧКИ
+===================================== */
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 35px;
+
+  perspective: 1400px;
 }
 
-@media (max-width: 1023px) {
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+/* =====================================
+   ОСНОВНОЕ ПОЯВЛЕНИЕ
+===================================== */
+
+.card {
+  position: relative;
+
+  opacity: 0;
+
+  transition:
+    opacity 1s ease var(--delay),
+    transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)
+      var(--delay);
+
+  transform-style: preserve-3d;
 }
 
-@media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; gap: 20px; }
+/*
+   КАЖДАЯ КАРТОЧКА ПРИЛЕТАЕТ
+   СВОЕЙ СТОРОНОЙ
+*/
+
+.card1 {
+  transform:
+    translateX(-300px)
+    rotateY(-35deg)
+    rotateZ(-8deg)
+    scale(0.7);
+}
+
+.card2 {
+  transform:
+    translateY(-250px)
+    rotateX(35deg)
+    scale(0.7);
+}
+
+.card3 {
+  transform:
+    translateX(300px)
+    rotateY(35deg)
+    rotateZ(8deg)
+    scale(0.7);
+}
+
+.card4 {
+  transform:
+    translateX(-300px)
+    rotateY(35deg)
+    rotateZ(8deg)
+    scale(0.7);
+}
+
+.card5 {
+  transform:
+    translateY(250px)
+    rotateX(-35deg)
+    scale(0.7);
+}
+
+.card6 {
+  transform:
+    translateX(300px)
+    rotateY(-35deg)
+    rotateZ(-8deg)
+    scale(0.7);
+}
+
+.started .card {
+  opacity: 1;
+
+  transform:
+    translateX(0)
+    translateY(0)
+    rotateX(0)
+    rotateY(0)
+    rotateZ(0)
+    scale(1);
+}
+
+/* =====================================
+   НОМЕРА
+===================================== */
+
+.number {
+  position: absolute;
+
+  z-index: 10;
+
+  top: -18px;
+  left: -14px;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #14b8b0;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  box-shadow:
+    0 15px 35px rgba(20, 184, 176, 0.3);
+
+  opacity: 0;
+
+  transform:
+    scale(0)
+    rotate(-180deg);
+
+  transition:
+    opacity 0.5s ease calc(var(--delay) + 600ms),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+      calc(var(--delay) + 600ms);
+}
+
+.started .number {
+  opacity: 1;
+
+  transform:
+    scale(1)
+    rotate(0);
+}
+
+/* =====================================
+   СТРАННЫЙ 3D HOVER
+===================================== */
+
+.card:hover {
+  z-index: 20;
+
+  transform:
+    translateY(-15px)
+    rotateX(3deg)
+    rotateY(-4deg)
+    scale(1.025) !important;
+
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .number {
+  transform:
+    scale(1.2)
+    rotate(12deg);
+}
+
+/* =====================================
+   ФИНАЛ
+===================================== */
+
+.finalText {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 100px;
+
+  font-size: clamp(25px, 4vw, 55px);
+
+  font-weight: 900;
+
+  letter-spacing: -2px;
+
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  transition:
+    opacity 1s ease 2.8s,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1) 2.8s;
+}
+
+.started .finalText {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.finalText span {
+  color: #111;
+}
+
+.finalText strong {
+  color: #14b8b0;
+}
+
+.finalText i {
+  display: block;
+
+  width: 60px;
+  height: 4px;
+
+  background: #14b8b0;
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition:
+    transform 1s ease 3.6s;
+}
+
+.started .finalText i {
+  transform: scaleX(1);
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .person {
+    left: 2%;
+    transform: scale(0.8);
+  }
+
+  .started .person {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 650px) {
+  .section {
+    padding: 80px 0 100px;
+  }
+
+  .scene {
+    height: 230px;
+  }
+
+  .bigText {
+    font-size: 65px;
+  }
+
+  .person {
+    left: -10px;
+    bottom: 10px;
+    transform: scale(0.55);
+  }
+
+  .started .person {
+    transform: scale(0.55);
+  }
+
+  .subtitle {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .card1,
+  .card2,
+  .card3,
+  .card4,
+  .card5,
+  .card6 {
+    transform:
+      translateY(100px)
+      scale(0.8);
+  }
+
+  .started .card {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  .finalText {
+    margin-top: 70px;
+  }
 }
