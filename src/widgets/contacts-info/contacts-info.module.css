@@ -1,36 +1,247 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f5f7f6;
+  color: #111;
+  isolation: isolate;
+  padding: 44px 0 80px;
 }
 
-.card {
-  background: var(--page);
-  border-radius: var(--r-md);
-  padding: 20px;
+/* =========================
+   BACKGROUND
+}
+
+.card:hover p {
+  color: #aaa;
+}
+
+.cardBottom {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #999;
 }
 
-.label {
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(25, 36, 47, 0.5);
+.card:hover .cardBottom {
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-.value {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.4;
-  white-space: pre-line;
+.cardBottom b {
+  font-size: 20px;
+  color: #14b8b0;
+  transition: transform 0.4s ease;
 }
 
-@media (max-width: 1023px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+.card:hover .cardBottom b {
+  transform: translate(5px, -5px);
+}
+
+.cardGlow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -90px;
+  bottom: -90px;
+  border-radius: 50%;
+  background: rgba(20, 184, 176, 0.18);
+  filter: blur(25px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+.cardLine {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #14b8b0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .cardLine {
+  transform: scaleX(1);
+}
+
+/* =========================
+   BOTTOM STATEMENT
+========================= */
+
+.bottomStatement {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  align-items: center;
+  gap: 30px;
+  margin-top: 80px;
+  padding-top: 35px;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.visible .bottomStatement {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 1s ease 2.7s,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1) 2.7s;
+}
+
+.statementNumber {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #14b8b0;
+}
+
+.bottomStatement h3 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 58px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.bottomStatement h3 span {
+  color: #14b8b0;
+}
+
+.statementMark {
+  justify-self: end;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(20, 184, 176, 0.35);
+  border-radius: 50%;
+  color: #14b8b0;
+  font-size: 28px;
+  animation: markFloat 2s ease-in-out infinite;
+}
+
+@keyframes markFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .container {
+    width: min(100% - 30px, 700px);
+  }
+
+  .hero {
+    padding: 65px 0 50px;
+  }
+
+  .heroBottom {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heroDecoration {
+    display: none;
+  }
+
+  .scrollHint {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .scrollLine {
+    margin-left: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottomStatement {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .statementMark {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; }
+  .section {
+    padding-top: 25px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .topRight {
+    display: none;
+  }
+
+  .hero {
+    padding: 55px 0 45px;
+  }
+
+  .heroBottom {
+    grid-template-columns: 1fr;
+    margin-top: 45px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 270px;
+  }
+
+  .bottomStatement {
+    grid-template-columns: 1fr;
+    margin-top: 55px;
+  }
+
+  .statementNumber {
+    margin-bottom: 15px;
+  }
+
+  .backgroundWord {
+    top: 35%;
+    font-size: 90px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

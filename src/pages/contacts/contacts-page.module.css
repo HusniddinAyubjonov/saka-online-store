@@ -1,17 +1,12 @@
+
 .page {
-  padding-block: 24px 64px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f3ffff;
 }
 
-.title {
-  font-size: 26px;
-  font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 32px;
+/* =========================
+   HERO
   }
 }
