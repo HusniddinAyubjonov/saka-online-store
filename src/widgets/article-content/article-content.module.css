@@ -1,10 +1,60 @@
-.articleContent {
+.article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 40px;
 }
-
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
+.meta {
+  display: flex;
+  justify-content: space-between;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.meta a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+}
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 32px;
+}
+.heroImage {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  border-radius: var(--r-md);
+  display: block;
+}
+.paragraph {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.inlineImage {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 24px;
+  border-radius: var(--r-md);
+  display: block;
+}
+.tags {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+}
+.tags span {
+  background: var(--page);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
 }

@@ -1,17 +1,11 @@
 .page {
-  padding-block: 32px 64px;
+  padding-block: 24px 64px;
 }
-
-.title {
+.more {
+  padding-bottom: 64px;
+}
+.more h2 {
   font-size: 26px;
   font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
-  font-size: 13px;
+  margin-bottom: 24px;
 }

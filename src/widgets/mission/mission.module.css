@@ -1,10 +1,68 @@
-.mission {
+.section {
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
 }
-
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  max-width: 900px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+.gridWrap {
+  position: relative;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.card {
+  background: var(--page);
   border-radius: var(--r-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-dark);
+}
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+.cardText {
+  font-size: 14px;
   color: var(--muted);
-  font-size: 13px;
+  line-height: 1.6;
+}
+.wave {
+  position: absolute;
+  right: -100px;
+  bottom: -100px;
+  width: 60%;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wave {
+    display: none;
+  }
 }
