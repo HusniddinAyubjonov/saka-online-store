@@ -3,7 +3,7 @@ import { Button, notify } from "@/shared/ui";
 import { QuantityStepper } from "@/shared/ui/quantity-stepper";
 import styles from "./add-to-cart.module.css";
 
-export const AddToCart = ({ productId, className = "" }) => {
+export const AddToCart = ({ productId: _productId, className = "" }) => {
   const [qty, setQty] = useState(1);
 
   return (
