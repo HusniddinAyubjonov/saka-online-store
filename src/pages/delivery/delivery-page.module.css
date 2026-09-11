@@ -1,17 +1,902 @@
 .page {
-  padding-block: 32px 64px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  padding: 100px 0 70px;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #14b8b0;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
 }
 
 .title {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  margin: 0;
+  font-size: clamp(65px, 11vw, 150px);
+  line-height: 0.78;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
+.title span {
+  color: transparent;
+  -webkit-text-stroke: 2px #111;
+}
+
+.description {
+  margin: 50px 0 0;
+  color: rgba(17, 17, 17, 0.55);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================
+   ANIMATION SCENE
+========================= */
+
+.stepsScene {
+  position: relative;
+  min-height: 500px;
+  margin-top: 30px;
+  padding: 70px 20px;
+  overflow: hidden;
+  background: #f5f7f6;
+  border: 1px solid rgba(20, 184, 176, 0.2);
+}
+
+.sceneGlow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -180px;
+  top: -150px;
+  border-radius: 50%;
+  background: rgba(20, 184, 176, 0.15);
+  filter: blur(100px);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.sceneStarted .sceneGlow {
+  opacity: 1;
+}
+
+/* =========================
+   THREE STEPS
+========================= */
+
+.step {
+  position: absolute;
+  top: 90px;
+  z-index: 5;
+}
+
+.orderStep {
+  left: 3%;
+}
+
+.deliveryStep {
+  left: 43%;
+}
+
+.paymentStep {
+  right: 3%;
+}
+
+.stepNumber {
+  margin-bottom: 10px;
+  color: #14b8b0;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.stepText {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stepText span {
+  color: rgba(17, 17, 17, 0.35);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.stepText strong {
+  display: block;
+  white-space: nowrap;
+
+  font-size: clamp(32px, 4vw, 58px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* =========================
+   PACKAGE
+========================= */
+
+.package {
+  position: absolute;
+  left: 5px;
+  top: 125px;
+  width: 55px;
+  height: 55px;
+
+  opacity: 0;
+  transform: translateY(30px) rotate(-8deg);
+}
+
+.packageFront {
+  position: absolute;
+  inset: 8px 0 0;
+  background: #14b8b0;
+  border-radius: 5px;
+}
+
+.packageTop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 55px;
+  height: 18px;
+
+  background: #0f9690;
+
+  transform: skewY(-15deg);
+
+  border-radius: 4px;
+}
+
+.packageTape {
+  position: absolute;
+  left: 24px;
+  top: 7px;
+  width: 8px;
+  height: 48px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+   ROAD
+========================= */
+
+.road {
+  position: absolute;
+
+  left: 17%;
+  top: 235px;
+
+  width: 24%;
+  height: 60px;
+}
+
+.roadLine {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 29px;
+
+  height: 2px;
+
+  background: rgba(17, 17, 17, 0.13);
+}
+
+.roadLine::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 18px,
+    #14b8b0 18px 35px
+  );
+}
+
+/* =========================
+   CAR
+========================= */
+
+.car {
+  position: absolute;
+
+  left: -60px;
+  top: 5px;
+
+  width: 55px;
+  height: 35px;
+
+  opacity: 0;
+}
+
+.carBody {
+  position: absolute;
+
+  left: 4px;
+  bottom: 5px;
+
+  width: 48px;
+  height: 22px;
+
+  background: #111;
+
+  border-radius: 8px 12px 5px 5px;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carWindow {
+  position: absolute;
+
+  left: 14px;
+  top: -10px;
+
+  width: 24px;
+  height: 14px;
+
+  background: #14b8b0;
+
+  border-radius: 8px 8px 2px 2px;
+}
+
+.carLight {
+  position: absolute;
+
+  right: -3px;
+  top: 7px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 15px white;
+}
+
+.wheelLeft,
+.wheelRight {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 11px;
+  height: 11px;
+
+  background: #111;
+
+  border: 2px solid #777;
+
+  border-radius: 50%;
+}
+
+.wheelLeft {
+  left: 10px;
+}
+
+.wheelRight {
+  right: 6px;
+}
+
+/* =========================
+   DELIVERY POINT
+========================= */
+
+.location {
+  position: absolute;
+
+  left: 8px;
+  top: 125px;
+
+  width: 55px;
+  height: 55px;
+
+  opacity: 0;
+}
+
+.locationCore {
+  position: absolute;
+
+  left: 19px;
+  top: 19px;
+
+  width: 17px;
+  height: 17px;
+
+  border-radius: 50%;
+
+  background: #14b8b0;
+
+  box-shadow:
+    0 0 25px rgba(20, 184, 176, 0.8);
+}
+
+.locationRing {
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid #14b8b0;
+
+  border-radius: 50%;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.bankCard {
+  position: absolute;
+
+  right: 0;
+  top: 125px;
+
+  width: 130px;
+  height: 78px;
+
+  padding: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #171b1b,
+      #303636
+    );
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2);
+
+  opacity: 0;
+
+  transform:
+    translateY(30px)
+    scale(0.8)
+    rotate(-10deg);
+}
+
+.cardChip {
+  position: absolute;
+
+  left: 12px;
+  top: 28px;
+
+  width: 24px;
+  height: 18px;
+
+  border-radius: 4px;
+
+  background: #ccc;
+}
+
+.cardChip i {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: #777;
+}
+
+.cardChip i:nth-child(1) {
+  top: 5px;
+}
+
+.cardChip i:nth-child(2) {
+  top: 9px;
+}
+
+.cardChip i:nth-child(3) {
+  top: 13px;
+}
+
+.cardBrand {
+  position: absolute;
+
+  right: 12px;
+  top: 10px;
+
+  color: white;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+.cardCircle {
+  position: absolute;
+
+  right: 12px;
+  bottom: 10px;
+
+  width: 18px;
+  height: 18px;
+
+  border:
+    2px solid #14b8b0;
+
+  border-radius: 50%;
+}
+
+.cardNumber {
+  position: absolute;
+
+  left: 12px;
+  bottom: 12px;
+
+  display: flex;
+
+  gap: 4px;
+}
+
+.cardNumber i {
+  width: 12px;
+  height: 3px;
+
+  border-radius: 2px;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+}
+
+/* =========================
+   MONEY
+========================= */
+
+.coins {
+  position: absolute;
+
+  right: 0;
+  top: 125px;
+
+  display: flex;
+
+  gap: 8px;
+
+  opacity: 0;
+}
+
+.coin {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border:
+    2px solid #14b8b0;
+
+  border-radius: 50%;
+
+  color: #14b8b0;
+
   font-size: 13px;
+  font-weight: 900;
+
+  transform:
+    scale(0.4)
+    rotateY(0deg);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+/* ЗАКАЗ */
+
+.sceneStarted .orderStep .stepText strong {
+  animation:
+    textIn
+    0.8s
+    ease
+    0.4s
+    forwards;
+}
+
+.sceneStarted .package {
+  animation:
+    packageIn
+    0.8s
+    ease
+    1s
+    forwards;
+}
+
+/* МАШИНА ЕДЕТ МЕДЛЕННО */
+
+.sceneStarted .road .car {
+  animation:
+    drive
+    8s
+    cubic-bezier(0.45, 0, 0.25, 1)
+    1.7s
+    forwards;
+}
+
+/* ДОСТАВКА */
+
+.sceneStarted .deliveryStep .stepText strong {
+  animation:
+    textIn
+    0.8s
+    ease
+    8s
+    forwards;
+}
+
+.sceneStarted .location {
+  animation:
+    locationIn
+    0.7s
+    ease
+    8.3s
+    forwards;
+}
+
+/* ОПЛАТА */
+
+.sceneStarted .paymentStep .stepText strong {
+  animation:
+    textIn
+    0.8s
+    ease
+    9.2s
+    forwards;
+}
+
+/* КАРТА */
+
+.sceneStarted .bankCard {
+  animation:
+    cardAppear
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    10s
+    forwards,
+
+    cardSpin
+    4s
+    ease-in-out
+    10.8s
+    forwards;
+}
+
+/* ДЕНЬГИ */
+
+.sceneStarted .coin {
+  animation:
+    moneyAppear
+    0.8s
+    ease
+    14.9s
+    forwards,
+
+    moneySpin
+    2s
+    ease-in-out
+    15.4s
+    forwards;
+}
+
+.sceneStarted .coin:nth-child(2) {
+  animation-delay:
+    15.1s,
+    15.6s;
+}
+
+.sceneStarted .coin:nth-child(3) {
+  animation-delay:
+    15.3s,
+    15.8s;
+}
+
+/* COMPLETE */
+
+.finishLine {
+  position: absolute;
+
+  left: 50%;
+  bottom: 35px;
+
+  transform:
+    translateX(-50%);
+
+  color: #14b8b0;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+
+  opacity: 0;
+}
+
+.finishLine span {
+  display: inline-block;
+
+  width: 6px;
+  height: 6px;
+
+  margin-right: 8px;
+
+  border-radius: 50%;
+
+  background: #14b8b0;
+
+  box-shadow:
+    0 0 15px #14b8b0;
+}
+
+.sceneStarted .finishLine {
+  animation:
+    finishIn
+    0.8s
+    ease
+    17.8s
+    forwards;
+}
+
+/* =========================
+   KEYFRAMES
+========================= */
+
+@keyframes textIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes packageIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(30px)
+      rotate(-8deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+}
+
+@keyframes drive {
+  from {
+    left: -60px;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  to {
+    left: calc(100% - 5px);
+    opacity: 1;
+  }
+}
+
+@keyframes locationIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform:
+      translateY(30px)
+      scale(0.7)
+      rotate(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1)
+      rotate(-10deg);
+  }
+}
+
+@keyframes cardSpin {
+  0% {
+    opacity: 1;
+    transform:
+      rotate(-10deg)
+      scale(1);
+  }
+
+  25% {
+    transform:
+      rotate(5deg)
+      scale(1.04);
+  }
+
+  50% {
+    transform:
+      rotate(-5deg)
+      scale(1.06);
+  }
+
+  75% {
+    transform:
+      rotate(5deg)
+      scale(1.04);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      rotate(0deg)
+      scale(0.75);
+  }
+}
+
+@keyframes moneyAppear {
+  from {
+    opacity: 0;
+    transform:
+      scale(0.4)
+      rotateY(0deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(1)
+      rotateY(0deg);
+  }
+}
+
+@keyframes moneySpin {
+  from {
+    transform:
+      scale(1)
+      rotateY(0deg);
+  }
+
+  to {
+    transform:
+      scale(1.08)
+      rotateY(360deg);
+  }
+}
+
+@keyframes finishIn {
+  from {
+    opacity: 0;
+    transform:
+      translate(-50%, 15px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translate(-50%, 0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+  .stepsScene {
+    min-height: 850px;
+  }
+
+  .orderStep {
+    left: 5%;
+    top: 60px;
+  }
+
+  .deliveryStep {
+    left: 5%;
+    top: 310px;
+  }
+
+  .paymentStep {
+    left: 5%;
+    right: auto;
+    top: 560px;
+  }
+
+  .road {
+    left: 30%;
+    width: 60%;
+    top: 210px;
+  }
+
+  .bankCard {
+    left: 180px;
+    right: auto;
+  }
+
+  .coins {
+    left: 180px;
+    right: auto;
+    top: 125px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding: 70px 0 45px;
+  }
+
+  .stepsScene {
+    min-height: 900px;
+    padding: 40px 15px;
+  }
+
+  .stepText strong {
+    font-size: 42px;
+  }
+
+  .road {
+    left: 40%;
+    width: 55%;
+  }
+
+  .bankCard {
+    left: 165px;
+  }
+
+  .coins {
+    left: 165px;
+  }
 }
