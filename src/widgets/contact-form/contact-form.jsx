@@ -1,4 +1,4 @@
-import { Icon, notify } from "@/shared/ui";
+import { Icon, notify, Reveal } from "@/shared/ui";
 import styles from "./contact-form.module.css";
 
 export const ContactForm = () => {
@@ -9,7 +9,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className={styles.card}>
+    <Reveal as="div" variant="up" className={styles.card}>
       <h2 className={styles.title}>
         Получите бесплатную консультацию от нашего специалиста
       </h2>
@@ -31,6 +31,6 @@ export const ContactForm = () => {
         Нажимая на кнопку, вы даёте своё согласие на обработку персональных
         данных
       </p>
-    </div>
+    </Reveal>
   );
 };

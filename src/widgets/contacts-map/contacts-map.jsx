@@ -1,8 +1,8 @@
-import { Icon } from "@/shared/ui";
+import { Icon, Reveal } from "@/shared/ui";
 import styles from "./contacts-map.module.css";
 
 export const ContactsMap = () => (
-  <div className={styles.map}>
+  <Reveal as="div" variant="zoom" className={styles.map}>
     {/* заглушка-схема; заменить на встраиваемую карту (Яндекс/Google Maps) с реальным адресом */}
     <img
       src="/images/contacts/map-placeholder.svg"
@@ -12,5 +12,5 @@ export const ContactsMap = () => (
     <span className={styles.pin}>
       <Icon name="location" size={22} />
     </span>
-  </div>
+  </Reveal>
 );

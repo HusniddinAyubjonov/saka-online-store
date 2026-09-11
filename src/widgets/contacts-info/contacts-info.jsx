@@ -1,3 +1,4 @@
+import { Reveal } from "@/shared/ui";
 import styles from "./contacts-info.module.css";
 
 const cards = [
@@ -9,11 +10,11 @@ const cards = [
 
 export const ContactsInfo = () => (
   <div className={styles.grid}>
-    {cards.map((c) => (
-      <div key={c.label} className={styles.card}>
+    {cards.map((c, i) => (
+      <Reveal key={c.label} as="div" className={styles.card} delay={i * 80}>
         <span className={styles.label}>{c.label}</span>
         <p className={styles.value}>{c.value}</p>
-      </div>
+      </Reveal>
     ))}
   </div>
 );
