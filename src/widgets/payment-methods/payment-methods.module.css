@@ -1,213 +1,22 @@
-
 .section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  background: #f5f7f6;
-  color: #111;
-  padding: 110px 0 100px;
-  isolation: isolate;
-}
-
-/* =========================
-   BACKGROUND
-}
-
-.bottomRight {
   display: flex;
-
-  align-items: center;
-
-  gap: 15px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.bottomRight span {
-  font-size: 9px;
-
-  font-weight: 900;
-
-  letter-spacing: 0.18em;
+.title {
+  font-size: 22px;
+  font-weight: 600;
 }
 
-.bottomRight b {
-  display: grid;
-
-  place-items: center;
-
-  width: 42px;
-  height: 42px;
-
-  border-radius: 50%;
-
-  background: #111;
-
-  color: white;
-
-  font-size: 17px;
-
-  transition:
-    transform 0.4s ease,
-    background 0.4s ease;
+@media (min-width: 768px) {
+  .title { font-size: 32px; }
 }
 
-.bottomRight:hover b {
-  transform: translateX(8px);
-
-  background: #14b8b0;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 850px) {
-  .section {
-    padding: 75px 0 70px;
-  }
-
-  .container {
-    width: min(100% - 30px, 650px);
-  }
-
-  .hero {
-    padding: 55px 0 40px;
-  }
-
-  .title {
-    font-size: clamp(58px, 16vw, 105px);
-  }
-
-  .heroBottom {
-    grid-template-columns: 1fr 100px;
-  }
-
-  .centerMark {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .secure {
-    display: none;
-  }
-
-  .methods {
-    grid-template-columns: 1fr;
-  }
-
-  .method {
-    min-height: 330px;
-  }
-
-  .backgroundText {
-    top: 150px;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 550px) {
-  .section {
-    padding: 55px 0;
-  }
-
-  .container {
-    width: calc(100% - 24px);
-  }
-
-  .topRight {
-    display: none;
-  }
-
-  .title {
-    font-size: clamp(48px, 18vw, 78px);
-  }
-
-  .titleSecond {
-    margin-left: 25px;
-
-    -webkit-text-stroke-width: 1px;
-  }
-
-  .heroBottom {
-    display: block;
-
-    margin-top: 40px;
-  }
-
-  .centerMark {
-    margin: 30px 0;
-  }
-
-  .methodsHeader {
-    gap: 10px;
-  }
-
-  .methodsHeader > span {
-    font-size: 7px;
-  }
-
-  .method {
-    min-height: 320px;
-
-    padding: 18px;
-  }
-
-  .cardVisual {
-    height: 135px;
-
-    margin: 24px 0 20px;
-  }
-
-  .methodInfo h3 {
-    font-size: 16px;
-  }
-
-  .bottom {
-    display: block;
-  }
-
-  .bottomRight {
-    margin-top: 25px;
-
-    justify-content: space-between;
-  }
-
-  .backgroundText {
-    left: -10px;
-
-    font-size: 100px;
-  }
-}
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .gridBackground,
-  .orangeGlow,
-  .backgroundText,
-  .scanner,
-  .top,
-  .heroLabel,
-  .title > span:first-child,
-  .titleSecond,
-  .heroBottom,
-  .methodsHeader,
-  .method,
-  .bottom {
-    animation: none;
-    transition: none;
-  }
-
-  .scanner {
-    display: none;
-  }
-
-  .method.active .progress span {
-    transition: none;
-  }
+.text {
+  max-width: 720px;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.6;
 }
