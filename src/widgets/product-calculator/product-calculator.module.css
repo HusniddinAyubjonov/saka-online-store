@@ -1,0 +1,199 @@
+.section {
+  background: var(--navy);
+  border-radius: var(--r-md);
+  padding: 48px;
+  margin-top: 60px;
+}
+
+.title {
+  color: var(--white);
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calcWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.select {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--r-sm);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  appearance: none;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--r-sm);
+  padding: 6px;
+}
+
+.stepper button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: var(--r-sm);
+  transition: background 0.2s ease;
+}
+
+.stepper button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.stepper span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calcImg {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--r-md);
+}
+
+.calcInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calcInfo p {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.calcInfo b {
+  color: var(--white);
+  font-size: 16px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px auto 0;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  padding: 16px 40px;
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addBtn:hover {
+  background: var(--gold-dark);
+}
+
+.totalBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: #111820;
+  padding: 32px 40px;
+  border-radius: var(--r-md);
+  margin-top: 48px;
+}
+
+.totalItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.totalItem span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.totalItem b {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.totalPrice {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.totalPrice span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.totalPrice b {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+@media (max-width: 1023px) {
+  .calcWrap {
+    grid-template-columns: 1fr;
+  }
+  .totalBlock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .totalPrice {
+    text-align: left;
+  }
+}

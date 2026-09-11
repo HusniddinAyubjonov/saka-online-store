@@ -1,10 +1,67 @@
-.newsGrid {
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
-
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
+.heroCard {
+  position: relative;
   border-radius: var(--r-md);
-  color: var(--muted);
-  font-size: 13px;
+  overflow: hidden;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background: var(--navy);
+}
+.heroCard img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 64px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+.heroContent h3 {
+  font-size: 32px;
+  font-weight: 600;
+}
+.heroContent p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.categories {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heroContent {
+    padding: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .heroContent h3 {
+    font-size: 24px;
+  }
 }
