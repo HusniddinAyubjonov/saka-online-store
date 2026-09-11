@@ -1,14 +1,19 @@
 import { Layout } from "@/widgets/layout";
-import { Container } from "@/shared/ui";
+import { Container, Breadcrumbs } from "@/shared/ui";
+import { ContactsInfo } from "@/widgets/contacts-info";
+import { ContactForm } from "@/widgets/contact-form";
+import { ContactsMap } from "@/widgets/contacts-map";
 import styles from "./contacts-page.module.css";
 
-export const ContactsPage = () => {
-  return (
-    <Layout>
-      <Container className={styles.page}>
-        <h1 className={styles.title}>Контакты</h1>
-        <p className={styles.todo}>Контакты — TODO: собрать из виджетов по макету</p>
-      </Container>
-    </Layout>
-  );
-};
+export const ContactsPage = () => (
+  <Layout>
+    <Container className={styles.page}>
+      <Breadcrumbs items={[{ label: "Главная", href: "/" }, { label: "Контакты" }]} />
+      <div className={styles.grid}>
+        <ContactsInfo />
+        <ContactForm />
+      </div>
+      <ContactsMap />
+    </Container>
+  </Layout>
+);

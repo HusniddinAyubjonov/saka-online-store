@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Icon, IconButton } from "@/shared/ui";
+import { CallbackRequest } from "@/features/callback-request";
 import styles from "./header.module.css";
 
 const badges = [
@@ -44,9 +45,13 @@ export const Header = ({ cartCount = 3 }) => {
           </a>
 
           <div className={styles.actions}>
-            <button type="button" className={styles.callback}>
-              Заказать звонок
-            </button>
+            <CallbackRequest
+              trigger={
+                <button type="button" className={styles.callback}>
+                  Заказать звонок
+                </button>
+              }
+            />
 
             <span className={styles.lang}>RU&nbsp;/&nbsp;EN</span>
 

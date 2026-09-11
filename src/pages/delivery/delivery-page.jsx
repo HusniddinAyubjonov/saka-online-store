@@ -1,14 +1,18 @@
 import { Layout } from "@/widgets/layout";
-import { Container } from "@/shared/ui";
+import { Container, Breadcrumbs } from "@/shared/ui";
+import { DeliveryMethods } from "@/widgets/delivery-methods";
+import { PaymentMethods } from "@/widgets/payment-methods";
+import { ExtraInfo } from "@/widgets/extra-info";
 import styles from "./delivery-page.module.css";
 
-export const DeliveryPage = () => {
-  return (
-    <Layout>
-      <Container className={styles.page}>
-        <h1 className={styles.title}>Оплата и доставка</h1>
-        <p className={styles.todo}>Оплата и доставка — TODO: собрать из виджетов по макету</p>
-      </Container>
-    </Layout>
-  );
-};
+export const DeliveryPage = () => (
+  <Layout>
+    <Container className={styles.page}>
+      <Breadcrumbs items={[{ label: "Главная", href: "/" }, { label: "Доставка и оплата" }]} />
+      <h1 className={styles.title}>Доставка и оплата</h1>
+      <DeliveryMethods />
+      <PaymentMethods />
+      <ExtraInfo />
+    </Container>
+  </Layout>
+);

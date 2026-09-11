@@ -1,9 +1,18 @@
 import styles from "./payment-methods.module.css";
 
-export const PaymentMethods = (props) => {
-  return (
-    <div className={styles.paymentMethods} {...props}>
-      <p className={styles.todo}>PaymentMethods — TODO: свёрстать по макету</p>
-    </div>
-  );
-};
+const methods = ["Visa", "Mastercard", "МИР", "СБП", "Наличными"];
+
+export const PaymentMethods = () => (
+  <section className={styles.section}>
+    <h2 className={styles.title}>Оплата товара</h2>
+    <p className={styles.text}>
+      Принимаем оплату банковскими картами, через Систему быстрых платежей,
+      а также наличными или банковским переводом для юридических лиц.
+    </p>
+    <ul className={styles.list}>
+      {methods.map((m) => (
+        <li key={m} className={styles.badge}>{m}</li>
+      ))}
+    </ul>
+  </section>
+);

@@ -1,9 +1,25 @@
+import { Button, notify } from "@/shared/ui";
 import styles from "./subscribe-form.module.css";
 
-export const SubscribeForm = (props) => {
+export const SubscribeForm = ({ className = "" }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.currentTarget.reset();
+    notify.success("Вы подписались на новости");
+  };
   return (
-    <div className={styles.subscribeForm} {...props}>
-      <p className={styles.todo}>SubscribeForm — TODO: свёрстать по макету</p>
-    </div>
+    <form
+      className={[styles.subscribeForm, className].filter(Boolean).join(" ")}
+      onSubmit={handleSubmit}
+    >
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="Ваш E-mail"
+        className={styles.input}
+      />
+      <Button type="submit" size="md">Отправить</Button>
+    </form>
   );
 };

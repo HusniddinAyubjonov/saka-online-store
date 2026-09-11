@@ -1,10 +1,38 @@
-.extraInfo {
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: var(--r-md);
+  padding: 32px 40px;
 }
 
-.todo {
-  padding: 24px;
-  border: 1px dashed var(--border);
-  border-radius: var(--r-md);
-  color: var(--muted);
-  font-size: 13px;
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.text {
+  max-width: 520px;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
+}
+
+.phone {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .section { flex-direction: column; align-items: flex-start; }
 }
